@@ -25,6 +25,7 @@ export class Menu extends BasePage{
     }
 
     async getMenuItemsList(): Promise<string[]>{
+        await this.menuListItems.allTextContents();
         return await this.menuListItems.allTextContents();
     }
 }
