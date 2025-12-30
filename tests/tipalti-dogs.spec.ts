@@ -20,6 +20,10 @@ test.describe('Tipalti Dogs Adoption Workflow', () => {
         test(`Select "${dogName}" and submit contact details`, async ({ menu, dogPage, page }) => {
             
             await menu.openMenu();
+
+            const items = await menu.getMenuItemsList();
+            expect(items).toContain(dogName);
+
             await menu.selectMenuItem(dogName);
 
             await expect(page).toHaveURL(new RegExp(dogName.toLowerCase()));
