@@ -1,15 +1,20 @@
 import { test as base } from '@playwright/test';
-// import { LoginPage } from '../pages/LoginPage';
+import { Menu } from '../pages/components/Menu';
+import { DogPage } from '../pages/DogPage';
 
 type MyFixtures = {
-    // loginPage: LoginPage;
+    menu: Menu
+    dogPage: DogPage
 };
 
 export const test = base.extend<MyFixtures>({
 
-    // loginPage: async ({ page }, use) => {
-    //     await use(new LoginPage(page));
-    // },
+    menu: async({page}, use) => {
+        await use(new Menu(page))
+    },
+    dogPage: async({page}, use) => {
+        await use(new DogPage(page))
+    } 
 });
 
 export { expect } from '@playwright/test';
